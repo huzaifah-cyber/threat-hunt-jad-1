@@ -1,4 +1,4 @@
-<img src="assets/main.png" width="1100">
+<img src="assets/main.png" width="900">
 
 # Threat Hunt Report - Just Another Day
 
@@ -208,7 +208,7 @@ DeviceLogonEvents
 | Field | Value |
 |---|---|
 | **Answer** | It is noise because it's deleting files related to OneDrive |
-| **Time (UTC)** | Not provided |
+| **Time (UTC)** | 2026-03-11T13:48:33.5988205Z |
 
 **Details:** The early command-shell deletions are OneDrive-related file deletions and are therefore noise rather than intruder activity.
 
@@ -280,7 +280,7 @@ DeviceProcessEvents
 | Field | Value |
 |---|---|
 | **Answer** | "net.exe" view /domain:nimbus |
-| **Time (UTC)** | Not provided |
+| **Time (UTC)** | 2026-03-11T13:17:35.6183089Z |
 
 **Details:** The operator widened reconnaissance beyond the single server by querying the Nimbus domain with "net.exe" view /domain:nimbus.
 
@@ -297,7 +297,7 @@ DeviceProcessEvents
 | Field | Value |
 |---|---|
 | **Answer** | nslookup, then RDP to 10.1.0.235 |
-| **Time (UTC)** | Not provided |
+| **Time (UTC)** | 2026-03-11T13:18:51.6781043Z |
 
 **Details:** The operator used nslookup to map the local network, then immediately used mstsc /v:10.1.0.235 to establish the next RDP hop.
 
@@ -631,7 +631,3 @@ DeviceFileEvents
 5. **Confirm, don't assume, lateral activity:** When an account reaches a second or third host, prove what happened there rather than treating the landing itself as the finding. An empty result on one hop (as with the IT workstation here) is still evidence and should be documented, not skipped.
 
 6. **Reason from absence:** No malware and no exploitation, paired with valid credentials and an external source, is itself a diagnostic pattern (T1078, Valid Accounts). Build detection logic and analyst guidance around this combination rather than requiring a malicious binary to trigger a response.
-
----
-
-<img src="assets/score.png" width="1100">
