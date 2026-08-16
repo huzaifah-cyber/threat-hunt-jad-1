@@ -314,18 +314,19 @@ DeviceProcessEvents
 | Field | Value |
 |---|---|
 | **Answer** | Approved |
-| **Time (UTC)** | Not provided |
+| **Time (UTC)** | 2026-03-12T12:08:11.5334377Z |
 
 **Details:** The billing account reached the Approved billing workflow folder, which is downstream of the submission analyst's expected role.
 
 **Query:**
 ```kql
 DeviceFileEvents
-| where DeviceName == "nh-wks-bill-01.corp.nimbushealth.com"
+| where DeviceName startswith "nh-"
 | where TimeGenerated between (datetime(2026-03-08) .. datetime(2026-03-18))
-| where FolderPath has @"\\NH-FS-01\Billing"
-| order by FolderPath asc
-| project-reorder TimeGenerated, FolderPath, FileName, *
+| where DeviceName == "nh-wks-bill-01.corp.nimbushealth.com"
+| where FolderPath has_any ("Billing", "Approv", "Sign")
+| project TimeGenerated, DeviceName, FolderPath, FileName
+| order by TimeGenerated asc
 ```
 
 <img src="assets/6.png" width="1100">
@@ -341,7 +342,7 @@ DeviceFileEvents
 | Field | Value |
 |---|---|
 | **Answer** | approved_pending_invoice_INV-664215_20260310.txt |
-| **Time (UTC)** | Not provided |
+| **Time (UTC)** | 2026-03-10T18:07:48.8962863Z |
 
 **Details:** The account handled the invoice file approved_pending_invoice_INV-664215_20260310.txt within the billing approval folder.
 
@@ -366,7 +367,7 @@ DeviceFileEvents
 | Field | Value |
 |---|---|
 | **Answer** | review_audit_20260311.txt |
-| **Time (UTC)** | Not provided |
+| **Time (UTC)** | 2026-03-11T12:13:59.267327Z |
 
 **Details:** The account j.morris modified the workflow audit file review_audit_20260311.txt.
 
@@ -393,7 +394,7 @@ DeviceFileEvents
 | Field | Value |
 |---|---|
 | **Answer** | temp_payroll_review_jmorris_20260311.txt.txt |
-| **Time (UTC)** | Not provided |
+| **Time (UTC)** | 2026-03-11T12:59:33.9075278Z |
 
 **Details:** The payroll material was staged into the billing share under the filename temp_payroll_review_jmorris_20260311.txt.txt, with the double .txt extension preserved in the file telemetry, a disguise intended to make the file look like a routine billing artifact rather than exfiltrated HR material.
 
@@ -448,7 +449,7 @@ DeviceFileEvents
 | Field | Value |
 |---|---|
 | **Answer** | nh-fs-01.corp.nimbushealth.com, nh-wks-it-01.corp.nimbushealth.com |
-| **Time (UTC)** | Not provided |
+| **Time (UTC)** | 2026-03-11T13:27:05.2639507Z |
 
 **Details:** j.morris opened successful remote interactive sessions from the billing workstation's own internal address, 10.1.0.207, onto nh-fs-01.corp.nimbushealth.com and nh-wks-it-01.corp.nimbushealth.com, confirming the account pivoted inward from the billing workstation to two further hosts.
 
@@ -475,7 +476,7 @@ DeviceLogonEvents
 | Field | Value |
 |---|---|
 | **Answer** | No malicious activity occurred on the IT workstation |
-| **Time (UTC)** | Not provided |
+| **Time (UTC)** | 2026-03-11T13:30:42.0290737Z |
 
 **Details:** j.morris successfully reached nh-wks-it-01.corp.nimbushealth.com from 10.1.0.207, but the process telemetry, filtered clear of routine background/update noise, shows no malicious activity on the IT workstation. The landing is real; the activity on it is not.
 
