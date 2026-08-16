@@ -269,8 +269,6 @@ DeviceProcessEvents
 
 **Query:** Same as Flag 5
 
-<img src="assets/6.png" width="900">
-
 ---
 
 ### 🚩 Flag 7: Widening the Net
@@ -288,8 +286,6 @@ DeviceProcessEvents
 
 **Query:** Same as Flag 5
 
-<img src="assets/7.png" width="900">
-
 ---
 
 ### 🚩 Flag 8: Mapping Before the Jump
@@ -306,8 +302,6 @@ DeviceProcessEvents
 **Details:** The operator used nslookup to map the local network, then immediately used mstsc /v:10.1.0.235 to establish the next RDP hop.
 
 **Query:** Same as Flag 5
-
-<img src="assets/8.png" width="900">
 
 ---
 
@@ -334,7 +328,7 @@ DeviceFileEvents
 | project-reorder TimeGenerated, FolderPath, FileName, *
 ```
 
-<img src="assets/9.png" width="900">
+<img src="assets/6.png" width="900">
 
 ---
 
@@ -359,7 +353,7 @@ DeviceFileEvents
 | project TimeGenerated, DeviceName, FolderPath, FileName, ActionType
 ```
 
-<img src="assets/10.png" width="900">
+<img src="assets/7.png" width="900">
 
 ---
 
@@ -386,7 +380,7 @@ DeviceFileEvents
 | where ActionType == "FileModified"
 ```
 
-<img src="assets/11.png" width="900">
+<img src="assets/8.png" width="900">
 
 ---
 
@@ -414,7 +408,7 @@ DeviceFileEvents
 | where ActionType == "FileModified"
 ```
 
-<img src="assets/12.png" width="900">
+<img src="assets/9.png" width="900">
 
 ---
 
@@ -441,7 +435,7 @@ DeviceFileEvents
 | where ActionType == "FileModified"
 ```
 
-<img src="assets/13.png" width="900">
+<img src="assets/10.png" width="900">
 
 ---
 
@@ -468,7 +462,7 @@ DeviceLogonEvents
 | distinct DeviceName
 ```
 
-<img src="assets/14.png" width="900">
+<img src="assets/11.png" width="900">
 
 ---
 
@@ -500,7 +494,7 @@ and ProcessCommandLine !contains "background"
 | distinct ProcessCommandLine
 ```
 
-<img src="assets/15.png" width="900">
+<img src="assets/12.png" width="900">
 
 ---
 
@@ -527,7 +521,7 @@ DeviceProcessEvents
 or InitiatingProcessCommandLine contains "powershell.exe"
 ```
 
-<img src="assets/16.png" width="900">
+<img src="assets/13.png" width="900">
 
 ---
 
@@ -552,6 +546,8 @@ DeviceProcessEvents
 | where DeviceName == "nh-fs-01.corp.nimbushealth.com"
 ```
 
+<img src="assets/14.png" width="900">
+
 ---
 
 ### 🚩 Flag 18: Someone Else's Payroll
@@ -574,6 +570,8 @@ DeviceFileEvents
 | where InitiatingProcessAccountName == "j.morris"
 | where DeviceName == "nh-fs-01.corp.nimbushealth.com"
 ```
+
+<img src="assets/15.png" width="900">
 
 ---
 
@@ -598,6 +596,8 @@ DeviceFileEvents
 | where RequestAccountName == "j.morris"
 | project-reorder TimeGenerated, DeviceName, FolderPath, FileName, ActionType, *
 ```
+
+<img src="assets/16.png" width="900">
 
 ---
 
