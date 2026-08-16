@@ -1,4 +1,4 @@
-<img src="assets/main.png" width="900">
+<img src="assets/main.png" width="1100">
 
 # Threat Hunt Report - Just Another Day
 
@@ -143,7 +143,7 @@ DeviceLogonEvents
 | summarize count() by AccountName
 ```
 
-<img src="assets/1.png" width="500">
+<img src="assets/1.png" width="1100">
 
 ---
 
@@ -168,7 +168,7 @@ DeviceLogonEvents
 | distinct LogonType
 ```
 
-<img src="assets/2.png" width="500">
+<img src="assets/2.png" width="1100">
 
 ---
 
@@ -195,7 +195,7 @@ DeviceLogonEvents
 | project-reorder TimeGenerated, RemoteIP, *
 ```
 
-<img src="assets/3.png" width="900">
+<img src="assets/3.png" width="1100">
 
 ---
 
@@ -222,7 +222,7 @@ DeviceProcessEvents
 | project TimeGenerated, InitiatingProcessCommandLine, InitiatingProcessFileName, FolderPath, FileName
 ```
 
-<img src="assets/4.png" width="900">
+<img src="assets/4.png" width="1100">
 
 ---
 
@@ -250,7 +250,7 @@ DeviceProcessEvents
 | order by TimeGenerated asc
 ```
 
-<img src="assets/5.png" width="900">
+<img src="assets/5.png" width="1100">
 
 ---
 
@@ -328,7 +328,7 @@ DeviceFileEvents
 | project-reorder TimeGenerated, FolderPath, FileName, *
 ```
 
-<img src="assets/6.png" width="900">
+<img src="assets/6.png" width="1100">
 
 ---
 
@@ -353,7 +353,7 @@ DeviceFileEvents
 | project TimeGenerated, DeviceName, FolderPath, FileName, ActionType
 ```
 
-<img src="assets/7.png" width="900">
+<img src="assets/7.png" width="1100">
 
 ---
 
@@ -380,7 +380,7 @@ DeviceFileEvents
 | where ActionType == "FileModified"
 ```
 
-<img src="assets/8.png" width="900">
+<img src="assets/8.png" width="1100">
 
 ---
 
@@ -408,7 +408,7 @@ DeviceFileEvents
 | where ActionType == "FileModified"
 ```
 
-<img src="assets/9.png" width="900">
+<img src="assets/9.png" width="1100">
 
 ---
 
@@ -435,7 +435,7 @@ DeviceFileEvents
 | where ActionType == "FileModified"
 ```
 
-<img src="assets/10.png" width="900">
+<img src="assets/10.png" width="1100">
 
 ---
 
@@ -462,7 +462,7 @@ DeviceLogonEvents
 | distinct DeviceName
 ```
 
-<img src="assets/11.png" width="900">
+<img src="assets/11.png" width="1100">
 
 ---
 
@@ -494,7 +494,7 @@ and ProcessCommandLine !contains "background"
 | distinct ProcessCommandLine
 ```
 
-<img src="assets/12.png" width="900">
+<img src="assets/12.png" width="1100">
 
 ---
 
@@ -521,7 +521,7 @@ DeviceProcessEvents
 or InitiatingProcessCommandLine contains "powershell.exe"
 ```
 
-<img src="assets/13.png" width="900">
+<img src="assets/13.png" width="1100">
 
 ---
 
@@ -546,7 +546,7 @@ DeviceProcessEvents
 | where DeviceName == "nh-fs-01.corp.nimbushealth.com"
 ```
 
-<img src="assets/14.png" width="900">
+<img src="assets/14.png" width="1100">
 
 ---
 
@@ -571,7 +571,7 @@ DeviceFileEvents
 | where DeviceName == "nh-fs-01.corp.nimbushealth.com"
 ```
 
-<img src="assets/15.png" width="900">
+<img src="assets/15.png" width="1100">
 
 ---
 
@@ -597,7 +597,7 @@ DeviceFileEvents
 | project-reorder TimeGenerated, DeviceName, FolderPath, FileName, ActionType, *
 ```
 
-<img src="assets/16.png" width="900">
+<img src="assets/16.png" width="1100">
 
 ---
 
