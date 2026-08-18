@@ -605,14 +605,8 @@ DeviceFileEvents
 
 ## 🛡️ Security Recommendations
 
-1. **Verify session origin, not just credentials:** Alert on RemoteInteractive logons to workstation-tier accounts (e.g. billing analysts) that originate from public/external IP space. Valid credentials alone should not be treated as proof of legitimate use.
+1. **Alert on RemoteInteractive logons from public/external IPs on workstation-tier accounts.** Do not treat valid credentials as proof of legitimate use; correlate session origin against the account's expected working location.
 
-2. **Baseline role-appropriate access:** Flag file access that falls outside an account's normal workflow stage. A submissions-only billing account reaching into the Approved folder, or an audit-trail file being modified by a non-reviewer, should generate a detection rather than sit unnoticed.
+2. **Enforce and monitor role-based access boundaries across workflow stages and file shares.** Detect when an account reaches folders, approval stages, or audit trails outside its defined role, and flag files moved or renamed between shares (e.g. HR to Billing) to blend in.
 
-3. **Detect cross-share staging and renaming:** Watch for files moved between shares (HR to Billing) and saved under names or double extensions designed to blend into the destination folder. This kind of disguised staging is a strong signal of deliberate exfiltration prep, not routine file handling.
-
-4. **Monitor native reconnaissance tooling:** whoami, hostname, net view, net use, and nslookup run in short, deliberate bursts by non-IT accounts are a reliable discovery signature even when no malware is present. Correlate these with the account's normal job function.
-
-5. **Confirm, don't assume, lateral activity:** When an account reaches a second or third host, prove what happened there rather than treating the landing itself as the finding. An empty result on one hop (as with the IT workstation here) is still evidence and should be documented, not skipped.
-
-6. **Reason from absence:** No malware and no exploitation, paired with valid credentials and an external source, is itself a diagnostic pattern (T1078, Valid Accounts). Build detection logic and analyst guidance around this combination rather than requiring a malicious binary to trigger a response.
+3. **Build detection rules around living-off-the-land discovery patterns and confirmed lateral movement.** Correlate native commands (whoami, net view, net use, nslookup) run in tight bursts against the account's job function, and require positive confirmation (not assumption) of activity or its absence on every host reached.
