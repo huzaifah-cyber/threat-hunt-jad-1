@@ -76,22 +76,6 @@ A beginner hunt, but a real one: telling the intruder's hands-on activity apart 
 
 ---
 
-### Hunt Stages [ gate + 6 phases ]
-
-| Phase | Focus |
-|---|---|
-| **00** | Setup gate: confirm the law-cyber-range workspace, the March window, and the nh-* filter |
-| **01** | The billing account: the account under review, how it's being used, and the part that doesn't fit an insider |
-| **02** | Hands on the keyboard: the noise to rule out, then the real recon and what it was aimed at |
-| **03** | Past the role: reaching beyond the billing role, and the sensitive material moved under cover |
-| **04** | Moving through the network: the onward hops, and the one that turns out to be a red herring |
-| **05** | Collection: what the account did once it reached the file server, and whose data it took |
-| **06** | Judgement: the scope of the theft, and the honest root cause the evidence supports |
-
-> **Note on the absence.** Some of the strongest findings here are things that did not happen. No malware. No exploitation. A machine reached but never worked on. When a table you expect to be busy comes back quiet, that quiet is data. Reason from the gap, do not close on it.
-
----
-
 ## 2. Objective
 
 Work Nimbus Health as a real posture-review-turned-investigation:
