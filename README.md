@@ -76,7 +76,7 @@ A beginner hunt, but a real one: telling the intruder's hands-on activity apart 
 
 ---
 
-## 2. Objective
+## 2. Objectives
 
 Work Nimbus Health as a real posture-review-turned-investigation:
 
@@ -109,7 +109,7 @@ Work Nimbus Health as a real posture-review-turned-investigation:
 
 **What to find:** The review flagged one billing account behaving oddly. Name it.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -135,7 +135,7 @@ DeviceLogonEvents
 
 **What to find:** This account isn't being used by someone sitting at the billing desk. Its successful sessions are a different kind of logon entirely. Give the logon type.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -160,7 +160,7 @@ DeviceLogonEvents
 
 **What to find:** Those remote sessions into the billing workstation are not coming from inside the clinic. Give one of the sources, and satisfy yourself it isn't an internal address.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -187,7 +187,7 @@ DeviceLogonEvents
 
 **What to find:** Sort the account's command-shell activity by time and the first thing you'll hit is a burst of deletions. Before building a theory on it, determine whether that's the intruder, or noise, and say how you know.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -214,7 +214,7 @@ DeviceProcessEvents
 
 **What to find:** Past the noise, the account's operator runs a short, deliberate burst of native commands to get their bearings. Give that sequence, in order, including the server named on the final command.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -242,7 +242,7 @@ DeviceProcessEvents
 
 **What to find:** The recon wasn't aimless. The last discovery command names one system specifically. Which server were they lining up?
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -259,7 +259,7 @@ DeviceProcessEvents
 
 **What to find:** The operator came back to the shell a second time, later, and widened the net beyond the single server. One command asks the domain itself what's out there. Give it.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -276,7 +276,7 @@ DeviceProcessEvents
 
 **What to find:** Straight after the domain check, the operator spends two minutes building a picture of the local network, then immediately jumps to another host. Name what they did to map the local network, and the move it set up.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -293,7 +293,7 @@ DeviceProcessEvents
 
 **What to find:** A billing analyst on submissions has no business in the sign-off stage. But this account went there. Name the billing workflow folder it reached into that its role shouldn't touch.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -321,7 +321,7 @@ DeviceFileEvents
 
 **What to find:** Inside that folder, name the invoice this account handled.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -346,7 +346,7 @@ DeviceFileEvents
 
 **What to find:** The account also touched the workflow's audit trail, the record that's supposed to reflect the reviewer's actions, not a submitter's. Name the audit file it modified.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -373,7 +373,7 @@ DeviceFileEvents
 
 **What to find:** The account pulled payroll material out of HR and dropped it into the billing share, renamed to look like a billing exception, so it would sit there without raising an eyebrow. Name the payroll file as it ended up in the billing folder.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -401,7 +401,7 @@ DeviceFileEvents
 
 **What to find:** Payroll wasn't the only thing taken from HR. In the same burst, the account touched a second HR file that has nothing to do with payroll. Name it, and note what it tells you about the scope.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -428,7 +428,7 @@ DeviceFileEvents
 
 **What to find:** The account didn't stop at the billing box. From there it opened remote sessions onto two more machines. Name both.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -455,7 +455,7 @@ DeviceLogonEvents
 
 **What to find:** One of the two hops is a red herring, prove it rather than assume it. The account landed on the IT workstation. Did it actually do anything there?
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -487,7 +487,7 @@ and ProcessCommandLine !contains "background"
 
 **What to find:** On the file server, the account's operator ran a command to check what privileges and groups they had. Give it.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -514,7 +514,7 @@ or InitiatingProcessCommandLine contains "powershell.exe"
 
 **What to find:** Right after the privilege check, the account enumerated what the file server was offering. Give that command.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -539,7 +539,7 @@ DeviceProcessEvents
 
 **What to find:** The last thing the account did on the file server was open a payroll review belonging to a different employee entirely. Name the file, and note whose it is.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -564,7 +564,7 @@ DeviceFileEvents
 
 **What to find:** Step back over the HR collection. Beyond the one payroll file everyone notices, characterise what this account took out of HR. Give the scope in a sentence.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
@@ -590,7 +590,7 @@ DeviceFileEvents
 
 **What to find:** The clinic will want to write this up as a curious employee with leftover access. Give the honest read: what actually happened, and what's missing that rules out malware and a routine insider mistake.
 
-**Flag Data Block**
+
 
 | Field | Value |
 |---|---|
