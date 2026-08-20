@@ -12,7 +12,7 @@
 
 ## 1. Complete Scenario
 
-### ☠️ Short Summary
+### Summary
 
 Nimbus Health flagged a billing account for a routine "stale access" review. The telemetry showed otherwise: the account's sessions were remote-interactive logons from a public IP, not desk activity. The operator ran native recon (whoami, net view, nslookup), pivoted from the billing workstation to the file server and an IT box, reached beyond the billing role into the approval stage and audit trail, and staged HR payroll data inside the billing share under a disguised filename. A wider HR sweep showed the collection reached a second employee's payroll record and unrelated material. No malware or exploit was found anywhere. Overall, this was **valid-account compromise, discovery, lateral movement, and cross-department collection**, carried out entirely with living-off-the-land tooling.
 
